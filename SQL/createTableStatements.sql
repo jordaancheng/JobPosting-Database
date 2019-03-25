@@ -1,23 +1,22 @@
 CREATE TABLE Applicant(
-    phoneNumber INTEGER,
-    currentlyEmployed VARCHAR(4), 
-    name VARCHAR(20),
-    userID VARCHAR(10) PRIMARY KEY, 
+    userID VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(20), 
     password VARCHAR(20),
+    currentlyEmployed VARCHAR(4), 
+    phoneNumber VARCHAR(15),
     address VARCHAR(64) 
 );
 
 CREATE TABLE Employer1(
-    name VARCHAR(20) 
-    PRIMARY KEY, 
+    name VARCHAR(20) PRIMARY KEY, 
     password VARCHAR(20)
 );
 
 CREATE TABLE Employer2(
-    name VARCHAR(20),
-    address VARCHAR(64),
     userID VARCHAR(10) PRIMARY KEY, 
-    Company VARCHAR(20)
+    name VARCHAR(20),
+    company VARCHAR(20),
+    address VARCHAR(64),
 );
 
 CREATE TABLE JobPosting1(
@@ -33,7 +32,7 @@ CREATE TABLE JobPosting3(
 CREATE TABLE JobPosting4(
     jpID VARCHAR(10) PRIMARY KEY,
     company VARCHAR(20) NOT NULL, 
-    description VARCHAR(100), 
+    description VARCHAR(1000), 
     requirements VARCHAR(100),
     title VARCHAR(20)
 );
