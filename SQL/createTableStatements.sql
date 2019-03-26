@@ -16,7 +16,7 @@ CREATE TABLE Employer2(
     userID VARCHAR(10) PRIMARY KEY, 
     name VARCHAR(20),
     company VARCHAR(20),
-    address VARCHAR(64),
+    address VARCHAR(64)
 );
 
 CREATE TABLE JobPosting1(
@@ -31,10 +31,11 @@ CREATE TABLE JobPosting3(
 
 CREATE TABLE JobPosting4(
     jpID VARCHAR(10) PRIMARY KEY,
+    title VARCHAR(50),
     company VARCHAR(20) NOT NULL, 
     description VARCHAR(1000), 
     requirements VARCHAR(100),
-    title VARCHAR(20)
+    deadline DATE
 );
 
 CREATE TABLE Participate_Interview1(
@@ -70,8 +71,8 @@ CREATE TABLE For_Interview2(
     location VARCHAR(64) NOT NULL, 
     time VARCHAR(10) NOT NULL,
     date DATE,
-    userID VARCHAR(10),
-    FOREIGN KEY (userID) REFERENCES Applicant(userID) ON DELETE CASCADE
+    jpID VARCHAR(10),
+    FOREIGN KEY (jpID) REFERENCES JobPosting4(jpID) ON DELETE CASCADE
     ON UPDATE CASCADE
 );
 
@@ -111,9 +112,9 @@ CREATE TABLE Create_Application(
 );
 
 CREATE TABLE Have_Reference (
+    name VARCHAR(20),
     phoneNumber INTEGER,
     currentTitle VARCHAR(64),
-    name VARCHAR(20),
     appID VARCHAR(10),
     PRIMARY KEY (phoneNumber, appID),
     FOREIGN KEY (appID) REFERENCES ApplyTo_Application (appID) ON DELETE CASCADE
