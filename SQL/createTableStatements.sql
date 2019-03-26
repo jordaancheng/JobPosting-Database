@@ -49,9 +49,9 @@ CREATE TABLE Participate_Interview1(
 CREATE TABLE Participate_Interview2(
     interviewID VARCHAR(10) PRIMARY KEY,
     interviewerName VARCHAR(20),
-    location VARCHAR(64) NOT NULL,
     time VARCHAR(10) NOT NULL,
-    date DATE, 
+    date DATE NOT NULL, 
+    location VARCHAR(64) NOT NULL,
     userID VARCHAR(10),
     FOREIGN KEY (userID) REFERENCES Applicant(userID) ON DELETE CASCADE 
     ON UPDATE CASCADE
@@ -60,7 +60,7 @@ CREATE TABLE Participate_Interview2(
 CREATE TABLE For_Interview1(
     interviewerName VARCHAR(20),
     time VARCHAR(10) NOT NULL,
-    date DATE,
+    date DATE NOT NULL,
     medium VARCHAR(10) NOT NULL,
     PRIMARY KEY (interviewerName, time, date)
 );
@@ -68,9 +68,9 @@ CREATE TABLE For_Interview1(
 CREATE TABLE For_Interview2(
     interviewID VARCHAR(10) PRIMARY KEY, 
     interviewerName CHAR(20),
-    location VARCHAR(64) NOT NULL, 
     time VARCHAR(10) NOT NULL,
-    date DATE,
+    date DATE NOT NULL,
+    location VARCHAR(64) NOT NULL, 
     jpID VARCHAR(10),
     FOREIGN KEY (jpID) REFERENCES JobPosting4(jpID) ON DELETE CASCADE
     ON UPDATE CASCADE
@@ -79,7 +79,7 @@ CREATE TABLE For_Interview2(
 CREATE TABLE For_JobOffer(
     offerID VARCHAR(10) PRIMARY KEY,
     startDate DATE,
-    Salary VARCHAR(20),
+    salary VARCHAR(20),
     jpID VARCHAR(10) NOT NULL,
     FOREIGN KEY (jpID) REFERENCES JobPosting4(jpID) ON DELETE NO ACTION
     ON UPDATE CASCADE
@@ -94,26 +94,25 @@ CREATE TABLE Post(
 );
 
 CREATE TABLE ApplyTo_Application( 
-    appID VARCHAR(10) PRIMARY KEY, 
-    resume VARCHAR(64),
-    coverLetter VARCHAR(64),
+    appID VARCHAR(10) PRIMARY KEY,
     jpID VARCHAR(10) NOT NULL,
     FOREIGN KEY (jpID) REFERENCES JobPosting4(jpID) ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
 
 CREATE TABLE Create_Application(
-    appID VARCHAR(10) PRIMARY KEY,
-    resume VARCHAR(64),
-    coverLetter VARCHAR(64),
+    appID INT AUTO_INCREMENT,
+    resume VARCHAR(250),
+    coverLetter VARCHAR(250),
     userID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (appID),
     FOREIGN KEY (userID) REFERENCES Applicant (userID) ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
 
 CREATE TABLE Have_Reference (
     name VARCHAR(20),
-    phoneNumber INTEGER,
+    phoneNumber VARCHAR(15),
     currentTitle VARCHAR(64),
     appID VARCHAR(10),
     PRIMARY KEY (phoneNumber, appID),
