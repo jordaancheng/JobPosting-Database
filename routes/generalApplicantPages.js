@@ -105,6 +105,6 @@ module.exports = {
 
     redirect: (req, res) => {
         let id = req.params.id;
-        res.redirect('/applicant/'+id+'/createApplication/');
+        res.redirect('/applicant/'+id+'/application/add/');
     },
 };

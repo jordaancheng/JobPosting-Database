@@ -3,6 +3,12 @@
         <% if (postings.length > 0) {%>
 
         <div>
+            <button type="button" id= "viewApplications" class="btn-primary float-right">View Applications</button>
+            <script type="text/javascript">
+                document.getElementById("viewApplications").onclick = function () {
+                    location.href = document.URL +'application/';
+                };
+            </script>
             <input type="text" class="float-right" name="company" id="company" placeholder="Company" required>
             <button type="button" id= "filterbyCompany" class="btn-primary float-right">Filter by Company</button>
             <script type="text/javascript">
@@ -41,7 +47,10 @@
                             <td><%= postings.deadline %></td>
                             <td><%= postings.numberOfPositions %></td>
                             <td>
-                                <a href="posting/<%= postings.jpID %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">More Info</a>
+                                <a href="posting/<%= postings.jpID %>/" target="_blank" rel="noopener" class="btn btn-sm btn-success">More Info</a>
+                            </td>
+                            <td>
+                                <a href="apply/<%= postings.jpID %>/" target="_blank" rel="noopener" class="btn btn-sm btn-success">Apply</a>
                             </td>
                         </tr>
                     <% }) %>
