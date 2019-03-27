@@ -31,7 +31,13 @@ module.exports = {
         let ph = req.params.ph;
         let query="SELECT hr.phoneNumber, hr.currentTitle, hr.name FROM Have_Reference hr WHERE hr.appID = '"
             + appid + "' AND hr.phoneNumber = '"+ ph + "'";
-        res.render(/*todo by front end*/)
+            db.query(query, (err, result) =>{
+                if(err){
+                    return res.status(500).send(err);
+                }
+                //result[0] contains the current phoneNumber, currentTitle and name for the user
+                res.render(/*todo by front end*/)
+            });
     },
 
     updateReference: (req, res) => {

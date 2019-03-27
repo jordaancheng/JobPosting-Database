@@ -4,7 +4,7 @@ module.exports = {
     },
 
     applicantLogin: (req, res) => {
-        let username = req.body.first_name;
+        let username = req.body.username;
         let password = req.body.password;
         let query = "SELECT userID FROM 'Applicant' Where username = '"+username+"' AND password= '" + password +"'";
 
@@ -20,7 +20,7 @@ module.exports = {
     },
 
     EmployerLogin: (req, res) => {
-        let username = req.body.first_name;
+        let username = req.body.username;
         let password = req.body.password;
         let query = "SELECT userID FROM 'Employer' Where username = '"+username+"' AND password= '" + password +"'";
 
