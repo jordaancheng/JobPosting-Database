@@ -56,25 +56,25 @@ INSERT INTO JobPosting1 VALUES ("Facebook", "Technology");
 INSERT INTO JobPosting1 VALUES ("Twitter", "Technology");
 
 INSERT INTO JobPosting3(requirements, numberOfPositions) VALUES 
-("As a member of the Software Engineering team you will develop...", 2);
+("Bachelor in Computer Science; JavaScript, Python", 2);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Full-stack team you will develop...", 1);
+("Bachelor in Computer Science; JavaScript, Python", 1);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Front-end team you will develop...", 1);
+("Bachelor in Computer Science; JavaScript, Python", 1);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the UX team you will develop...", 3);
+("Bachelor in Computer Science; JavaScript, Python", 3);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Firmware Engineering team you will develop...", 1);
+("Bachelor in Computer Science; JavaScript, Python", 1);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Web Developing team you will develop...", 2);
+("Bachelor in Computer Science; JavaScript, Python", 2);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Developing team you will develop...", 2);
+("Bachelor in Computer Science; JavaScript, Python", 2);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Firmware Certificate team you will develop...", 1);
+("Bachelor in Computer Science; JavaScript, Python", 1);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the Back-end team you will develop...", 2);
+("Bachelor in Computer Science; JavaScript, Python", 2);
 INSERT INTO JobPosting3 VALUES 
-("As a member of the QA test team you will develop...", 3);
+("Bachelor in Computer Science; JavaScript, Python", 3);
 
 INSERT INTO JobPosting4(jpID, title, company, description, requirements, deadline) VALUES 
 ("jp001", "Software Engineer Intern", "Apple", "As a member of the Software Engineering team you will develop...", "Bachelor in Computer Science; JavaScript, Python", "2019-03-25");
