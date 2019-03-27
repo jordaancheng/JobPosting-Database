@@ -9,10 +9,10 @@ const app = express();
 const {getApplicantLoginPage,applicantLogin,getEmployerLoginPage,employerLogin} = require('./routes/login');
 const {getUpdateApplicantPage,updateApplicant,getUpdateReferencePage,updateReference} = require('./routes/updateApplicant');
 const {getfilterIndustryPage,getfilterCompanyPage,getfilterReferencesPage} = require('./routes/filter');
-const {getApplicantPage,getPostingDetailsPage,getApplicationsPage,getReferencePage,getInterviewPage,getSelectAppPage} = require('./route/generalApplicantPages');
-const {getCreateApplicationPage,createApplication,apply,getAddReferencePage,addReference} = require('./route/addApplicant');
-const {deleteApplication,deleteReference,} = require('./route/deleteApplicant');
-const {getEmployerPage,getEditPostingPage,editPosting,getPostingApplicationPage} = require('./route/generalEmployer');
+const {getApplicantPage,getPostingDetailsPage,getApplicationsPage,getReferencePage,getInterviewPage,getSelectAppPage} = require('./routes/generalApplicantPages');
+const {getCreateApplicationPage,createApplication,apply,getAddReferencePage,addReference} = require('./routes/addApplicant');
+const {deleteApplication,deleteReference,} = require('./routes/deleteApplicant');
+const {getEmployerPage,getEditPostingPage,editPosting,getPostingApplicationPage} = require('./routes/generalEmployer');
 
 const port = 2000;
 

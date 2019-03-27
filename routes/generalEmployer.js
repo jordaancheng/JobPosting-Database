@@ -47,7 +47,7 @@ module.exports = {
         });
     },
 
-    getfilterReferencesPage: (req, res) => {
+    getPostingApplicationPage: (req, res) => {
         let jpid = req.params.jpid;
         let query= "SELECT distinct ata.appID FROM ApplyTo_Application ata WHERE ata.jpID = '"+jpid+"'";
         db.query(query, (err, result) =>{

@@ -19,7 +19,7 @@ module.exports = {
         res.render(/*todo by front end*/)
     },
 
-    EmployerLogin: (req, res) => {
+    employerLogin: (req, res) => {
         let username = req.body.username;
         let password = req.body.password;
         let query = "SELECT userID FROM 'Employer' Where username = '"+username+"' AND password= '" + password +"'";
