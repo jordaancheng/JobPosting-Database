@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+    <h1> add a reference </h1>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="name" id="reference_name" placeholder="Name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="currentTitle" id="currentTitle" placeholder="current title" required>
+                </div>
+                
+            <button type="submit" class="btn btn-primary float-right">add reference</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

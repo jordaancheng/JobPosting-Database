@@ -1,10 +1,10 @@
 <% include partials/header.ejs %>
+    <h1> All applications </h1>
     <div class="table-wrapper">
         <% if (postings.length > 0) {%>
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">title</th>
                         <th scope="col">Company</th>
                         <th scope="col">description</th>
                         <th scope="col">requirements</th>
@@ -14,14 +14,10 @@
                 <tbody>
                     <% postings.forEach((postings, index) => { %>
                         <tr>
-                            <th scope="row"><%= postings.title %></th>
-                            <td><%= postings.company %></td>
+                            <th scope="row"><%= postings.company %></th>
                             <td><%= postings.description %></td>
                             <td><%= postings.requirements %></td>
                             <td>@<%= postings.deadline %></td>
-                            <td>
-                                <a href="/edit/<%= postings.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">apply</a>
-                            </td>
                         </tr>
                     <% }) %>
                 </tbody>
