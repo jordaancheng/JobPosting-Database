@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 
 const {getHomePage} = require('./routes/index');
+const {updateApplicant, getUpdateApplicantPage} = require('./routes/updateApplicant');
+const {getAllApplicants} = require('./routes/applicants');
 const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
 const port = 5000;
 
@@ -44,6 +46,9 @@ app.get('/edit/:id', editPlayerPage);
 app.get('/delete/:id', deletePlayer);
 app.post('/add', addPlayer);
 app.post('/edit/:id', editPlayer);
+app.get('/all', getAllApplicants);
+app.get('/update/:id', getUpdateApplicantPage);
+app.post('/update/:id', updateApplicant);
 
 
 // set the app to listen on the port

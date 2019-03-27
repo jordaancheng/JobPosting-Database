@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = {
     getUpdateReferencePage: (req, res) => {
         let appid = req.params.appid;
