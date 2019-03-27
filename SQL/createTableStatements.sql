@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS job_posting;
-use job_posting
+use job_posting;
 
 CREATE TABLE Applicant(
     userID VARCHAR(10) PRIMARY KEY,
