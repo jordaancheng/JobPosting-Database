@@ -6,6 +6,7 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 
+const {mainPage} = require('./routes/mainPage');
 const {getApplicantLoginPage,applicantLogin,getEmployerLoginPage,employerLogin} = require('./routes/login');
 const {getUpdateReferencePage,updateReference,getEditApplicationPage,editApplication} = require('./routes/updateApplicant');
 const {getfilterIndustryPage,getfilterCompanyPage,getfilterReferencesPage} = require('./routes/filter');
@@ -34,6 +35,8 @@ app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
+
+app.get('/', mainPage);
 
 app.get('/applicant/', getApplicantLoginPage);
 app.post('/applicant/', applicantLogin);
