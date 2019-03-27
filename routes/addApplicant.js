@@ -1,6 +1,9 @@
 module.exports = {
     getCreateApplicationPage: (req, res) => {
-        res.render(/*todo by front end*/)
+        res.render('addApplication.ejs', {
+            title: "Welcome to Job Posting | Create Applications"
+            ,message:""
+        });
     },
 
     createApplication: (req, res) => {
@@ -13,14 +16,14 @@ module.exports = {
             if (err) {
                 res.redirect('/applicant/'+id+'/createApplication/');
             }
-            res.redirect('/applicant/'+id+'/application');
+            res.redirect('/applicant/'+id+'/application/');
         });
     },
 
     apply: (req, res) => {
         let appid = req.params.appid;
         let jpid = req.params.jpid;
-        let query = "Insert into ApplyTo_Application(appID, jpID) Values ('"+appid+"', '"+ jpID+ "')";
+        let query = "Insert into ApplyTo_Application(appID, jpID) Values ('"+appid+"', '"+ jpid+ "')";
 
         db.query(query, (err, result) =>{
             if (err) {
@@ -31,7 +34,10 @@ module.exports = {
     },
 
     getAddReferencePage: (req, res) => {
-        res.render(/*todo by front end*/)
+        res.render('add-reference.ejs', {
+            title: "Welcome to Job Posting | Create References"
+            ,message:""
+        });
     },
 
     addReference: (req, res) => {
@@ -47,7 +53,7 @@ module.exports = {
             if (err) {
                 res.redirect('/applicant/'+id+'/application/'+appid+'/addReference/');
             }
-            res.redirect('/applicant/'+id+'/application/'+appid+'/reference');
         });
+        res.redirect('/applicant/'+id+'/application/'+appid+'/reference/');
     },
 };

@@ -25,9 +25,13 @@ module.exports = {
         db.query(query, (err, result) =>{
             if (err) {
                 return res.status(500).send(err);
-            }
-            //result contains list of job postings to be displayed
-            res.render(/*todo by front end*/);
+            }else{
+                //result contains list of job postings to be displayed
+                    res.render('postingDetails.ejs', {
+                        title: "Welcome to Job Posting | View Job Posting Details"
+                        ,player: result[0]
+                    });
+                }
         });
     },
 
@@ -37,21 +41,31 @@ module.exports = {
             db.query(query, (err, result) =>{
                 if(err){
                     return res.status(500).send(err);
-                }
+                }else{
                 //result contains list of job postings to be displayed
-                res.render(/*todo by front end*/);
+                    res.render('allApplications.ejs', {
+                        title: "Welcome to Job Posting | View Application"
+                        ,postings: result
+                    });
+                }
             });
     },
 
     getSelectAppPage: (req, res) => {
         let id = req.params.id;
-        let query="SELECT * FROM Create_Application ca WHERE ca.userID = '"+id+"'";
+        let jpid = req.params.jpid;
+        let query="SELECT * FROM Create_Application ca WHERE ca.userID = '"+id+"' AND ca.appID NOT IN( SELECT ata.appId "
+            +"FROM ApplyTo_Application ata)";
             db.query(query, (err, result) =>{
                 if(err){
                     return res.status(500).send(err);
-                }
-                //result contains list of job postings to be displayed
-                res.render(/*todo by front end*/);
+                }else{
+                    //result contains list of job postings to be displayed
+                        res.render('selectApplication.ejs', {
+                            title: "Welcome to Job Posting | View Application"
+                            ,postings: result
+                        });
+                    }
             });
     },
 
@@ -65,13 +79,16 @@ module.exports = {
                 return res.status(500).send(err);
             }
             //result contains list of job postings to be displayed
-            res.render(/*todo by front end*/);
+            res.render('referenceIndex.ejs', {
+                title: "Welcome to Job Posting | View Application"
+                ,postings: result
+            });
         });
     },
     
     getInterviewPage: (req, res) => {
         let id = req.params.id;
-        let ph = req.params.ph;
+        let pn = req.params.ph;
         let query="SELECT * FROM Participate_Interview2 pi WHERE pi.userID = '" + id +
             "' AND pi.date >= CURDATE() ORDER BY pi.date";
             db.query(query, (err, result) =>{
@@ -84,5 +101,10 @@ module.exports = {
                     });
                 }
             });
+    },
+
+    redirect: (req, res) => {
+        let id = req.params.id;
+        res.redirect('/applicant/'+id+'/createApplication/');
     },
 };

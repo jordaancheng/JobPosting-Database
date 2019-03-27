@@ -38,13 +38,17 @@ module.exports = {
 
     getfilterReferencesPage: (req, res) => {
         let jpid = req.params.jpid;
-        let query= "SELECT distinct ata.appID FROM ApplyTo_Application ata WHERE ata.jpID = '"+jpid+"' AND ata.appID in (SELECT hr.appID FROM Have_Reference hr)";
+        let query= "SELECT * FROM Create_Application ca WHERE ca.appID IN (SELECT distinct ata.appID FROM ApplyTo_Application ata WHERE ata.jpID = '"
+        +jpid+"' AND ata.appID in (SELECT hr.appID FROM Have_Reference hr))";
         db.query(query, (err, result) =>{
             if(err){
                  return res.status(500).send(err);
+            }else{
+                res.render('applicationWithReferences.ejs', {
+                    title: "Welcome to Job Posting | View postings"
+                    ,postings: result
+                });
             }
-            //result contains list of job postings to be displayed
-            res.render(/*todo by front end*/);
         });
     },
 

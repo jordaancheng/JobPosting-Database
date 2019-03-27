@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+    <h1> Update A Reference </h1>
+    <div class="container">
+        <% if (player) { %>
+        <form class="add-player-form" action="" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="<%= player.name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<%= player.phoneNumber %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="currentTitle">Current Title</label>
+                    <input type="text" class="form-control" name="currentTitle" id="currentTitle" value="<%= player.currentTitle %>"required>
+                </div>
+                
+            <button type="submit" class="btn btn-primary float-right"> Save Reference</button>
+        </form>
+        <% } else { %>
+            <p class="text-center">No Reference..</p>
+        <% } %>
+</div>
+</div>
+</body>
+</html>

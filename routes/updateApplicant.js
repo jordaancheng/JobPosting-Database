@@ -1,60 +1,101 @@
 module.exports = {
-    getUpdateApplicantPage: (req, res) => {
-        let id = req.params.id;
-        let query="SELECT ca.resume, ca.coverLetter FROM Create_Application ca WHERE ca.userID = '"+ id + "'";
-        db.query(query, (err, result) =>{
-            if(err){
-                return res.status(500).send(err);
-            }
-            //result[0] contains the current resume and coverletter for the user
-            res.render(/*todo by front end*/)
-        });
-        
-    },
-
-    updateApplicant: (req, res) => {
-        let id = req.params.id;
-        let coverLetter = req.body.coverLetter;
-        let resume = req.body.resume;
-        let query = "Update Create_Application ca set ca.resume = '" + resume + 
-            "', ca.coverLetter = '" + coverLetter +"'WHERE ca.userID = '"+id + "'";
-
-        db.query(query, (err, result) =>{
+    getUpdateReferencePage: (req, res) => {
+        let appid = req.params.appid;
+        let pn = req.params.pn;
+        let query = "SELECT * FROM Have_Reference hr WHERE hr.appID = '"
+            + appid + "' AND hr.phoneNumber = '" + pn + "'";
+        console.log(query)
+        db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
+            } else {
+                res.render('updateReference.ejs', {
+                    title: "Welcome to Job Posting | Update Reference"
+                    , player: result[0]
+                });
+                console.log(result[0].name)
             }
-            res.redirect('/applicant/'+id+'/update')
         });
-    },
-    getUpdateReferencePage: (req, res) => {
-        let id = req.params.id;
-        let ph = req.params.ph;
-        let query="SELECT hr.phoneNumber, hr.currentTitle, hr.name FROM Have_Reference hr WHERE hr.appID = '"
-            + appid + "' AND hr.phoneNumber = '"+ ph + "'";
-            db.query(query, (err, result) =>{
-                if(err){
-                    return res.status(500).send(err);
-                }
-                //result[0] contains the current phoneNumber, currentTitle and name for the user
-                res.render(/*todo by front end*/)
-            });
     },
 
     updateReference: (req, res) => {
         let id = req.params.id;
-        let ph = req.params.ph;
+        let pn = req.params.pn;
         let appid = req.params.appid;
         let phoneNumber = req.body.phoneNumber;
         let currentTitle = req.body.currentTitle;
         let name = req.body.name;
-        let query = "Update Have_Reference hr set hr.phoneNumber = '" + phoneNumber + "', hr.currentTitle = '" + 
-            currentTitle +"', hr.name = '" + name +"'WHERE hr.appID = '"+ appid + "' AND hr.phoneNumber = '"+ ph + "'";
+        let query = "Update Have_Reference hr set hr.phoneNumber = '" + phoneNumber + "', hr.currentTitle = '" +
+            currentTitle + "', hr.name = '" + name + "'WHERE hr.appID = '" + appid + "' AND hr.phoneNumber = '" + pn + "'";
+        console.log(query);
+        db.beginTransaction(function (err) {
+            if (err) { throw err; }
+            db.query(query, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                console.log(result);
+                db.commit(function (err) {
+                    if (err) {
+                        connection.rollback(function () {
+                            throw err;
+                        });
+                    }
+                });
 
-        db.query(query, (err, result) =>{
+            });
+        });
+        res.redirect('/applicant/' + id + '/application/' + appid + '/reference/')
+
+    },
+
+    getEditApplicationPage: (req, res) => {
+        let id = req.params.id;
+        let appid = req.params.appid;
+
+        let query = "SELECT * FROM Create_Application ca WHERE ca.appID = '"
+            + appid + "' AND ca.userID = '" + id + "'";
+        console.log(query)    
+        db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
+            }else {
+                res.render('updateApplication.ejs', {
+                    title: "Welcome to Job Posting | Update Application"
+                    , player: result[0]
+                });
+                console.log(result[0].name)
             }
-            res.redirect('/applicant/'+id+'/application/'+appid+'/updateReference/'+phoneNumber)
         });
+    },
+
+    editApplication: (req, res) => {
+        let id = req.params.id;
+        let appid = req.params.appid;
+        let resume = req.body.resume;
+        let coverLetter = req.body.coverLetter;
+        let name = req.body.name;
+        let query = "Update Create_Application ca set ca.resume = '" + resume + "', ca.coverLetter = '" +
+            coverLetter + "' WHERE ca.appID = '" + appid + "' AND ca.userID = '" + id + "'";
+        console.log(query)   
+        db.beginTransaction(function (err) {
+            if (err) { throw err; }
+            db.query(query, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                console.log(result);
+                db.commit(function (err) {
+                    if (err) {
+                        connection.rollback(function () {
+                            throw err;
+                        });
+                    }
+                });
+
+            });
+        });
+        res.redirect('/applicant/' + id + '/application/')
+
     },
 };

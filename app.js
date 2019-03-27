@@ -7,9 +7,9 @@ const path = require('path');
 const app = express();
 
 const {getApplicantLoginPage,applicantLogin,getEmployerLoginPage,employerLogin} = require('./routes/login');
-const {getUpdateApplicantPage,updateApplicant,getUpdateReferencePage,updateReference} = require('./routes/updateApplicant');
+const {getUpdateReferencePage,updateReference,getEditApplicationPage,editApplication} = require('./routes/updateApplicant');
 const {getfilterIndustryPage,getfilterCompanyPage,getfilterReferencesPage} = require('./routes/filter');
-const {getApplicantPage,getPostingDetailsPage,getApplicationsPage,getReferencePage,getInterviewPage,getSelectAppPage} = require('./routes/generalApplicantPages');
+const {getApplicantPage,getPostingDetailsPage,getApplicationsPage,getReferencePage,getInterviewPage,getSelectAppPage,redirect} = require('./routes/generalApplicantPages');
 const {getCreateApplicationPage,createApplication,apply,getAddReferencePage,addReference} = require('./routes/addApplicant');
 const {deleteApplication,deleteReference,} = require('./routes/deleteApplicant');
 const {getEmployerPage,getEditPostingPage,editPosting,getPostingApplicationPage} = require('./routes/generalEmployer');
@@ -38,23 +38,24 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 app.get('/applicant/', getApplicantLoginPage);
 app.post('/applicant/', applicantLogin);
 app.get('/applicant/:id/', getApplicantPage);
-app.get('/applicant/:id/update/', getUpdateApplicantPage);
-app.post('/applicant/:id/update/', updateApplicant);
 app.get('/applicant/:id/filterIndustry/:industry/', getfilterIndustryPage);
 app.get('/applicant/:id/filterCompany/:company/', getfilterCompanyPage);
 app.get('/applicant/:id/posting/:jpid/', getPostingDetailsPage);
 app.get('/applicant/:id/application/', getApplicationsPage);
-app.get('/applicant/:id/createApplication/', getCreateApplicationPage);
-app.post('/applicant/:id/createApplication/', createApplication);
+app.get('/applicant/:id/application/add/', getCreateApplicationPage);
+app.post('/applicant/:id/application/add/', createApplication);
+app.get('/applicant/:id/application/:appid/edit/', getEditApplicationPage)
+app.post('/applicant/:id/application/:appid/edit/', editApplication)
 app.get('/applicant/:id/apply/:jpid/application/:appid/', apply);
 app.get('/applicant/:id/apply/:jpid/', getSelectAppPage);
-app.get('/applicant/:id/deleteApplication/:appID/', deleteApplication);
+app.get('/applicant/:id/apply/:jpid/new/', redirect);
+app.get('/applicant/:id/application/:appid/delete/', deleteApplication);
 app.get('/applicant/:id/application/:appid/reference/', getReferencePage);
-app.get('/applicant/:id/application/:appid/addReference/', getAddReferencePage);
-app.get('/applicant/:id/application/:appid/updateReference/:pn/', getUpdateReferencePage);
-app.post('/applicant/:id/application/:appid/updateReference/:pn/', updateReference);
-app.post('/applicant/:id/application/:appid/addReference/', addReference);
-app.get('/applicant/:id/application/:appid/deleteReference/:pn/', deleteReference);
+app.get('/applicant/:id/application/:appid/reference/add/', getAddReferencePage);
+app.get('/applicant/:id/application/:appid/reference/:pn/edit', getUpdateReferencePage);
+app.post('/applicant/:id/application/:appid/reference/:pn/edit', updateReference);
+app.post('/applicant/:id/application/:appid/reference/add/', addReference);
+app.get('/applicant/:id/application/:appid/reference/:pn/delete/', deleteReference);
 app.get('/applicant/:id/interview', getInterviewPage);
 
 app.get('/employer/',getEmployerLoginPage);
@@ -62,8 +63,8 @@ app.post('/employer/',employerLogin);
 app.get('/employer/:id/', getEmployerPage);
 app.get('/employer/:id/posting/:jpid/filterReferences/', getfilterReferencesPage);
 app.get('/employer/:id/posting/:jpid/', getPostingApplicationPage);
-app.get('/employer/:id/editPosting/:jpid/', getEditPostingPage);
-app.post('/employer/:id/editPosting/:jpid/', editPosting);
+app.get('/employer/:id/posting/:jpid/edit/', getEditPostingPage);
+app.post('/employer/:id/posting/:jpid/edit/', editPosting);
 
 // set the app to listen on the port
 app.listen(port, () => {
