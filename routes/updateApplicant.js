@@ -1,31 +1,44 @@
+const fs = require('fs');
+
 module.exports = {
     getUpdateApplicantPage: (req, res) => {
         let id = req.params.id;
-        let query="SELECT ca.resume, ca.coverLetter FROM Create_Application ca WHERE ca.userID = '"+ id + "'";
+        let query="SELECT * FROM Applicant a WHERE a.userID = '"+ id + "'";
         db.query(query, (err, result) =>{
             if(err){
                 return res.status(500).send(err);
             }
             //result[0] contains the current resume and coverletter for the user
-            res.render(/*todo by front end*/)
+            res.render('update-applicant.ejs', {
+                title: "Update Applicant"
+                ,applicant: result[0]
+                ,message: ''
+            });
         });
         
     },
-
     updateApplicant: (req, res) => {
-        let id = req.params.id;
-        let coverLetter = req.body.coverLetter;
-        let resume = req.body.resume;
-        let query = "Update Create_Application ca set ca.resume = '" + resume + 
-            "', ca.coverLetter = '" + coverLetter +"'WHERE ca.userID = '"+id + "'";
+        let userID = req.params.id;
+        let name = req.body.name;
+        let password = req.body.password;
+        let currentlyEmployed = req.body.currentlyEmployed;
+        let phoneNumber = req.body.phoneNumber;
+        let address = req.body.address;
+        let query = "Update Applicant a set a.name = '" + name + 
+            "', a.password = '" + password +
+            "', a.currentlyEmployed = '" + currentlyEmployed +
+            "', a.phoneNumber = '" + phoneNumber +
+            "', a.address = '" + address +
+            "'WHERE a.userID = '"+ userID + "'";
 
         db.query(query, (err, result) =>{
             if (err) {
                 return res.status(500).send(err);
             }
-            res.redirect('/applicant/'+id+'/update')
+            res.redirect('/all');
         });
     },
+
     getUpdateReferencePage: (req, res) => {
         let id = req.params.id;
         let ph = req.params.ph;

@@ -35,6 +35,43 @@ module.exports = {
             res.redirect('/');
         });
     },
+    getUpdateApplicantPage: (req, res) => {
+        let id = req.params.id;
+        let query="SELECT * FROM Applicant a WHERE a.userID = '"+ id + "'";
+        db.query(query, (err, result) =>{
+            if(err){
+                return res.status(500).send(err);
+            }
+            //result[0] contains the current resume and coverletter for the user
+            res.render('update-applicant.ejs', {
+                title: "Update Applicant"
+                ,applicant: result[0]
+                ,message: ''
+            });
+        });
+        
+    },
+    updateApplicant: (req, res) => {
+        let userid = req.params.id;
+        let name = req.body.name;
+        let password = req.body.password;
+        let currentlyEmployed = req.body.currentlyEmployed;
+        let phoneNumber = req.body.phoneNumber;
+        let address = req.body.address;
+        let query = "Update Applicants set name = '" + name + 
+            "', password = '" + password +
+            "', currentlyEmployed = '" + currentlyEmployed +
+            "', phoneNumber = '" + phoneNumber +
+            "', address = '" + address +
+            "'WHERE userID = '"+userid + "'";
+
+        db.query(query, (err, result) =>{
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.redirect('/');
+        });
+    },
     editPlayerPage: (req, res) => {
         let playerId = req.params.id;
         let query = "SELECT * FROM `players` WHERE id = '" + playerId + "' ";

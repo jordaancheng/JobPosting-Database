@@ -1,0 +1,37 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (applicants.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">userID</th>
+                        <th scope="col">name</th>
+                        <th scope="col">password</th>
+                        <th scope="col">currentlyEmployed</th>
+                        <th scope="col">phoneNumber</th>
+                        <th scope="col">address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% applicants.forEach((applicants, index) => { %>
+                        <tr>
+                            <th scope="row"><%= applicants.userID %></th>
+                            <td><%= applicants.name %></td>
+                            <td><%= applicants.password %></td>
+                            <td><%= applicants.currentlyEmployed %></td>
+                            <td><%= applicants.phoneNumber %></td>
+                            <td><%= applicants.address %></td>
+                            <td>
+                                <a href="/update/<%= applicants.userID %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">update</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No applicants found.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
