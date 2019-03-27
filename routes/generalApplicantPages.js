@@ -2,16 +2,19 @@ module.exports = {
 
     getApplicantPage: (req, res) => {
         let id = req.params.id;
-        let query="SELECT j4.jpid, j4.title, j4.company, j3.numberOfPositions, j4.deadline FROM JobPosting4 j4,"+
+        let query="SELECT * FROM JobPosting4 j4,"+
             "JobPosting3 j3 WHERE j4.requirements = j3.requirements AND j4.deadline >= CURDATE()";
+
         db.query(query, (err, result) =>{
             if(err){
                 return res.status(500).send(err);
+            }else{
+                res.render('index.ejs', {
+                    title: "Welcome to Job Posting | View postings"
+                    ,postings: result
+                });
             }
-            //result contains list of job postings to be displayed
-            res.render(/*todo by front end*/);
         });
-        
     },
 
     getPostingDetailsPage: (req, res) => {
@@ -74,9 +77,12 @@ module.exports = {
             db.query(query, (err, result) =>{
                 if(err){
                     return res.status(500).send(err);
+                }else{
+                    res.render('interviewIndex.ejs', {
+                        title: "Welcome to Job Posting | View Interview"
+                        ,postings: result
+                    });
                 }
-                //result contains list of job postings to be displayed
-                res.render(/*todo by front end*/);
             });
     },
 };

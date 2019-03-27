@@ -2,15 +2,21 @@ module.exports = {
 
     getEmployerPage: (req, res) => {
         let id = req.params.id;
-        let query="SELECT j4.jpid, j4.title, j4.company, j3.numberOfPositions, j4.deadline FROM JobPosting4 j4,"+
+        let query="SELECT * FROM JobPosting4 j4,"+
             "JobPosting3 j3, Employer2 e WHERE j4.requirements = j3.requirements AND j4.deadline >= CURDATE() AND e.userID = '"+
-            id+"' AND j4.company = e.company)";
+            id+"' AND j4.company = e.company";
+
+        console.log(query);
         db.query(query, (err, result) =>{
             if(err){
                 return res.status(500).send(err);
-            }
+            }else{
             //result[0] contains the current resume and coverletter for the user
-            res.render(/*todo by front end*/)
+                res.render('index.ejs', {
+                    title: "Welcome to Job Posting | View postings"
+                    ,postings: result
+            });
+            }
         });
         
     },

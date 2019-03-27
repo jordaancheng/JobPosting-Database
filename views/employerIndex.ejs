@@ -1,25 +1,6 @@
 <% include partials/header.ejs %>
     <div class="table-wrapper">
         <% if (postings.length > 0) {%>
-
-        <div>
-            <input type="text" class="float-right" name="company" id="company" placeholder="Company" required>
-            <button type="button" id= "filterbyCompany" class="btn-primary float-right">Filter by Company</button>
-            <script type="text/javascript">
-                document.getElementById("filterbyCompany").onclick = function () {
-                    location.href = document.URL +'filterCompany/'+ document.getElementById('company').value+'/';
-                };
-            </script>
-            <input type="text" class="float-right" name="industry" id="industry" placeholder="Industry" required>
-            <button type="button" id= "filterbyIndustry" class="btn-primary float-right">Filter by Industry</button>
-            <script type="text/javascript">
-                document.getElementById("filterbyIndustry").onclick = function () {
-                    location.href = document.URL +'filterIndustry/'+ document.getElementById('industry').value+'/';
-                };
-            </script>
-            <br/>
-        </div>
-
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>

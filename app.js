@@ -35,35 +35,35 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 
-app.get('/applicant', getApplicantLoginPage);
-app.post('/applicant', applicantLogin);
-app.get('/applicant/:id', getApplicantPage);
-app.get('/applicant/:id/update', getUpdateApplicantPage);
-app.post('/applicant/:id/update', updateApplicant);
-app.get('/applicant/:id/filterIndustry/:industry', getfilterIndustryPage);
-app.get('/applicant/:id/filterCompany/:company', getfilterCompanyPage);
-app.get('/applicant/:id/posting/:jpid', getPostingDetailsPage);
-app.get('/applicant/:id/application', getApplicationsPage);
+app.get('/applicant/', getApplicantLoginPage);
+app.post('/applicant/', applicantLogin);
+app.get('/applicant/:id/', getApplicantPage);
+app.get('/applicant/:id/update/', getUpdateApplicantPage);
+app.post('/applicant/:id/update/', updateApplicant);
+app.get('/applicant/:id/filterIndustry/:industry/', getfilterIndustryPage);
+app.get('/applicant/:id/filterCompany/:company/', getfilterCompanyPage);
+app.get('/applicant/:id/posting/:jpid/', getPostingDetailsPage);
+app.get('/applicant/:id/application/', getApplicationsPage);
 app.get('/applicant/:id/createApplication/', getCreateApplicationPage);
 app.post('/applicant/:id/createApplication/', createApplication);
-app.get('/applicant/:id/apply/:jpid/application/:appid', apply);
-app.get('/applicant/:id/apply/:jpid', getSelectAppPage);
-app.get('/applicant/:id/deleteApplication/:appID', deleteApplication);
-app.get('/applicant/:id/application/:appid/reference', getReferencePage);
+app.get('/applicant/:id/apply/:jpid/application/:appid/', apply);
+app.get('/applicant/:id/apply/:jpid/', getSelectAppPage);
+app.get('/applicant/:id/deleteApplication/:appID/', deleteApplication);
+app.get('/applicant/:id/application/:appid/reference/', getReferencePage);
 app.get('/applicant/:id/application/:appid/addReference/', getAddReferencePage);
-app.get('/applicant/:id/application/:appid/updateReference/:pn', getUpdateReferencePage);
-app.post('/applicant/:id/application/:appid/updateReference/:pn', updateReference);
+app.get('/applicant/:id/application/:appid/updateReference/:pn/', getUpdateReferencePage);
+app.post('/applicant/:id/application/:appid/updateReference/:pn/', updateReference);
 app.post('/applicant/:id/application/:appid/addReference/', addReference);
-app.get('/applicant/:id/application/:appid/deleteReference/:pn', deleteReference);
+app.get('/applicant/:id/application/:appid/deleteReference/:pn/', deleteReference);
 app.get('/applicant/:id/interview', getInterviewPage);
 
-app.get('/employer',getEmployerLoginPage);
-app.post('/employer',employerLogin);
-app.get('/employer/:id', getEmployerPage);
-app.get('/employer/:id/posting/:jpid/filterReferences', getfilterReferencesPage);
-app.get('/employer/:id/posting/:jpid', getPostingApplicationPage);
-app.get('/employer/:id/editPosting/:jpid', getEditPostingPage);
-app.post('/employer/:id/editPosting/:jpid', editPosting);
+app.get('/employer/',getEmployerLoginPage);
+app.post('/employer/',employerLogin);
+app.get('/employer/:id/', getEmployerPage);
+app.get('/employer/:id/posting/:jpid/filterReferences/', getfilterReferencesPage);
+app.get('/employer/:id/posting/:jpid/', getPostingApplicationPage);
+app.get('/employer/:id/editPosting/:jpid/', getEditPostingPage);
+app.post('/employer/:id/editPosting/:jpid/', editPosting);
 
 // set the app to listen on the port
 app.listen(port, () => {
