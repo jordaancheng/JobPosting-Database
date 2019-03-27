@@ -10,7 +10,7 @@ module.exports = {
             if(err){
                 return res.status(500).send(err);
             }else{
-                res.render('jobPostingList.ejs', {
+                res.render('index.ejs', {
                     title: "Welcome to Job Posting | View postings"
                     ,postings: result
                 });
@@ -28,7 +28,7 @@ module.exports = {
             if(err){
                  return res.status(500).send(err);
             }else{
-                res.render('jobPostingList.ejs', {
+                res.render('index.ejs', {
                     title: "Welcome to Job Posting | View postings"
                     ,postings: result
                 });
