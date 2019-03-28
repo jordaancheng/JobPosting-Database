@@ -59,7 +59,7 @@ app.get('/applicant/:id/application/:appid/reference/:pn/edit', getUpdateReferen
 app.post('/applicant/:id/application/:appid/reference/:pn/edit', updateReference);
 app.post('/applicant/:id/application/:appid/reference/add/', addReference);
 app.get('/applicant/:id/application/:appid/reference/:pn/delete/', deleteReference);
-app.get('/applicant/:id/interview', getInterviewPage);
+app.get('/applicant/:id/interview/', getInterviewPage);
 
 app.get('/employer/',getEmployerLoginPage);
 app.post('/employer/',employerLogin);
