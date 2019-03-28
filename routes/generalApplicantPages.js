@@ -51,6 +51,22 @@ module.exports = {
             });
     },
 
+    getPopularPostingsPage: (req, res) => {
+        let id = req.params.id;
+        let query="Select jp4.jpID from jobPosting4 jp4 where not exists (Select ata.jpID from ApplyTo_Application ata where not exists (Select a.userID from Applicant a, Create_Application ca where a.userID = ca.userID and ca.appID = ata.appID and ata.jpID = jp4.jpid))";
+            db.query(query, (err, result) =>{
+                if(err){
+                    return res.status(500).send(err);
+                }else{
+                //result contains list of job postings to be displayed
+                    res.render('popularPostings.ejs', {
+                        title: "Welcome to Job Posting | View Popular Postings"
+                        ,postings: result
+                    });
+                }
+            });
+    },
+
     getSelectAppPage: (req, res) => {
         let id = req.params.id;
         let jpid = req.params.jpid;

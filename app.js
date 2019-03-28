@@ -10,7 +10,7 @@ const { mainPage } = require('./routes/mainPage');
 const { getApplicantLoginPage, applicantLogin, getEmployerLoginPage, employerLogin } = require('./routes/login');
 const { getUpdateReferencePage, updateReference, getEditApplicationPage, editApplication } = require('./routes/updateApplicant');
 const { getfilterIndustryPage, getfilterCompanyPage, getfilterReferencesPage } = require('./routes/filter');
-const { getApplicantPage, getPostingDetailsPage, getApplicationsPage, getReferencePage, getInterviewPage, getSelectAppPage, redirect } = require('./routes/generalApplicantPages');
+const { getApplicantPage, getPostingDetailsPage, getApplicationsPage, getReferencePage, getInterviewPage, getSelectAppPage, redirect,getPopularPostingsPage} = require('./routes/generalApplicantPages');
 const { getCreateApplicationPage, createApplication, apply, getAddReferencePage, addReference } = require('./routes/addApplicant');
 const { deleteApplication, deleteReference, } = require('./routes/deleteApplicant');
 const { getEmployerPage, getEditPostingPage, editPosting, getPostingApplicationPage } = require('./routes/generalEmployer');
@@ -60,6 +60,7 @@ app.post('/applicant/:id/application/:appid/reference/:pn/edit', updateReference
 app.post('/applicant/:id/application/:appid/reference/add/', addReference);
 app.get('/applicant/:id/application/:appid/reference/:pn/delete/', deleteReference);
 app.get('/applicant/:id/interview/', getInterviewPage);
+app.get('/applicant/:id/popular/', getPopularPostingsPage);
 
 app.get('/employer/', getEmployerLoginPage);
 app.post('/employer/', employerLogin);

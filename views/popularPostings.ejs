@@ -1,0 +1,35 @@
+<% include partials/header.ejs %>
+<div class="table-wrapper">
+    <% if (postings.length > 0) {%>
+<table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">Company</th>
+                <th scope="col">description</th>
+                <th scope="col">requirements</th>
+                <th scope="col">deadline</th>
+                <th scope="col">numberOfPositions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% postings.forEach((postings, index) => { %>
+            <tr>
+                <th scope="row"><%= postings.title %></th>
+                <td><%= postings.company %></td>
+                <td><%= postings.description %></td>
+                <td><%= postings.requirements %></td>
+                <td><%= postings.deadline %></td>
+                <td><%= postings.numberOfPositions %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p class="text-center">No popular postings found!</p>
+    <% } %>
+</div>
+</div>
+</body>
+
+</html>

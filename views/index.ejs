@@ -41,6 +41,15 @@
                 };
             </script>
         </form>
+        <button type="button" id="popularPostings" class="btn-primary float-left">View Popular Postings</button>
+        <script type="text/javascript">
+            document.getElementById("popularPostings").onclick = function () {
+                let string = document.URL;
+                myIndex = string.split("/", 5).join("/").length;
+                location.href = string.substring(0, myIndex) + '/popular/';
+            }
+        </script>
+        </form>
         <button type="button" id="resetFilter" class="btn-primary float-left">Reset Filters</button>
         <script type="text/javascript">
             document.getElementById("resetFilter").onclick = function () {
