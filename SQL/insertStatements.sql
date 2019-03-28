@@ -142,6 +142,23 @@ INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a010");
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a010");
 
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a001");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a002");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a003");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a004");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a006");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a007");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a009");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a010");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a003");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a004");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a006");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a007");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a009");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a010");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("a link to the resume...", "a link to the cover letter", "a001");
+
+
 -- ApplyTo_Application records
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (1, "jp001");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (2, "jp001");
@@ -173,6 +190,22 @@ INSERT INTO ApplyTo_Application(appID, jpID) VALUES (27, "jp003");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (28, "jp007");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (29, "jp004");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (30, "jp009");
+
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (31, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (32, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (33, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (34, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (35, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (36, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (37, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (38, "jp010");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (39, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (40, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (41, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (42, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (43, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (44, "jp002");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (45, "jp002");
 
 -- Participate_Interview records
 INSERT INTO Participate_Interview1(interviewerName, time, date, medium) VALUES ("John Doe", "15:00", "2019-05-01", "In-person");
