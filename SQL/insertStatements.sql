@@ -111,15 +111,16 @@ INSERT INTO Post VALUES ("e010", "jp010");
 
 -- Create_Application records
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
-INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a001");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a002");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a003");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a004");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a005");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a006");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a007");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a008");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a009");
+INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a010");
+
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a002");
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a002");
 INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www.dropbox.com/s/kd4pcvfkwpfreqz/SampleResume.pdf?dl=0", "https://www.dropbox.com/s/akibhaj3c4v1q0y/SampleCL.pdf?dl=0", "a002");
@@ -143,16 +144,16 @@ INSERT INTO Create_Application(resume, coverLetter, userID) VALUES ("https://www
 
 -- ApplyTo_Application records
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (1, "jp001");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (2, "jp002");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (3, "jp003");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (4, "jp004");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (5, "jp005");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (6, "jp006");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (7, "jp007");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (8, "jp008");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (9, "jp009");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (10, "jp010");
-INSERT INTO ApplyTo_Application(appID, jpID) VALUES (11, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (2, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (3, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (4, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (5, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (6, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (7, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (8, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (9, "jp001");
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (10, "jp001");	
+INSERT INTO ApplyTo_Application(appID, jpID) VALUES (11, "jp002");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (12, "jp002");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (13, "jp003");
 INSERT INTO ApplyTo_Application(appID, jpID) VALUES (14, "jp004");
