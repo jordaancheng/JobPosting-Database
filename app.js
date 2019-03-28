@@ -6,14 +6,14 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 
-const {mainPage} = require('./routes/mainPage');
-const {getApplicantLoginPage,applicantLogin,getEmployerLoginPage,employerLogin} = require('./routes/login');
-const {getUpdateReferencePage,updateReference,getEditApplicationPage,editApplication} = require('./routes/updateApplicant');
-const {getfilterIndustryPage,getfilterCompanyPage,getfilterReferencesPage} = require('./routes/filter');
-const {getApplicantPage,getPostingDetailsPage,getApplicationsPage,getReferencePage,getInterviewPage,getSelectAppPage,redirect} = require('./routes/generalApplicantPages');
-const {getCreateApplicationPage,createApplication,apply,getAddReferencePage,addReference} = require('./routes/addApplicant');
-const {deleteApplication,deleteReference,} = require('./routes/deleteApplicant');
-const {getEmployerPage,getEditPostingPage,editPosting,getPostingApplicationPage} = require('./routes/generalEmployer');
+const { mainPage } = require('./routes/mainPage');
+const { getApplicantLoginPage, applicantLogin, getEmployerLoginPage, employerLogin } = require('./routes/login');
+const { getUpdateReferencePage, updateReference, getEditApplicationPage, editApplication } = require('./routes/updateApplicant');
+const { getfilterIndustryPage, getfilterCompanyPage, getfilterReferencesPage } = require('./routes/filter');
+const { getApplicantPage, getPostingDetailsPage, getApplicationsPage, getReferencePage, getInterviewPage, getSelectAppPage, redirect } = require('./routes/generalApplicantPages');
+const { getCreateApplicationPage, createApplication, apply, getAddReferencePage, addReference } = require('./routes/addApplicant');
+const { deleteApplication, deleteReference, } = require('./routes/deleteApplicant');
+const { getEmployerPage, getEditPostingPage, editPosting, getPostingApplicationPage } = require('./routes/generalEmployer');
 
 const port = 2000;
 
@@ -61,8 +61,8 @@ app.post('/applicant/:id/application/:appid/reference/add/', addReference);
 app.get('/applicant/:id/application/:appid/reference/:pn/delete/', deleteReference);
 app.get('/applicant/:id/interview/', getInterviewPage);
 
-app.get('/employer/',getEmployerLoginPage);
-app.post('/employer/',employerLogin);
+app.get('/employer/', getEmployerLoginPage);
+app.post('/employer/', employerLogin);
 app.get('/employer/:id/', getEmployerPage);
 app.get('/employer/:id/posting/:jpid/filterReferences/', getfilterReferencesPage);
 app.get('/employer/:id/posting/:jpid/', getPostingApplicationPage);

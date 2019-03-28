@@ -1,32 +1,33 @@
 <% include partials/header.ejs %>
-    <div class="table-wrapper">
-        <% if (postings.length > 0) {%>
-                <table class="table table-hovered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">interviewerName</th>
-                        <th scope="col">time</th>
-                        <th scope="col">date</th>
-                        <th scope="col">location</th>
-                        <th scope="col">jpID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% postings.forEach((player, index) => { %>
-                        <tr>
-                            <th scope="row"><%= player.interviewerName %></th>
-                            <td><%= player.time %></td>
-                            <td><%= player.date %></td>
-                            <td><%= player.location %></td>
-                            <td><%= player.jpID %></td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p class="text-center">No Interviews found.</p>
-        <% } %>
-    </div>
+<div class="table-wrapper">
+    <% if (postings.length > 0) {%>
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">interviewerName</th>
+                <th scope="col">time</th>
+                <th scope="col">date</th>
+                <th scope="col">location</th>
+                <th scope="col">jpID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% postings.forEach((player, index) => { %>
+            <tr>
+                <th scope="row"><%= player.interviewerName %></th>
+                <td><%= player.time %></td>
+                <td><%= player.date %></td>
+                <td><%= player.location %></td>
+                <td><%= player.jpID %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p class="text-center">No Interviews found.</p>
+    <% } %>
+</div>
 </div>
 </body>
+
 </html>

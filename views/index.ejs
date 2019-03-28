@@ -1,79 +1,94 @@
 <% include partials/header.ejs %>
-    <div class="table-wrapper">
-        <% if (postings.length > 0) {%>
+<div class="table-wrapper">
+    <% if (postings.length > 0) {%>
 
-        <div>
-            <button type="button" id= "viewInterview" class="btn-primary float-right">View Interview</button>
-                <script type="text/javascript">
-                    document.getElementById("viewInterview").onclick = function () {
-                        location.href = document.URL +'interview/';
-                    };
-                </script>
-            <button type="button" id= "viewApplications" class="btn-primary float-right">View Applications</button>
-            <script type="text/javascript">
-                document.getElementById("viewApplications").onclick = function () {
-                    location.href = document.URL +'application/';
-                };
-            </script>
+    <div>
+        <button type="button" id="viewInterview" class="btn-primary float-right">View Interview</button>
+        <script type="text/javascript">
+            document.getElementById("viewInterview").onclick = function () {
+                let string = document.URL;
+                myIndex = string.split("/", 5).join("/").length;
+                location.href = string.substring(0, myIndex) + "/interview/";
+            };
+        </script>
+        <button type="button" id="viewApplications" class="btn-primary float-right">View Applications</button>
+        <script type="text/javascript">
+            document.getElementById("viewApplications").onclick = function () {
+                let string = document.URL;
+                myIndex = string.split("/", 5).join("/").length;
+                location.href = string.substring(0, myIndex) + '/application/';
+            };
+        </script>
+        <form>
             <input type="text" class="float-right" name="company" id="company" placeholder="Company" required>
-            <button type="button" id= "filterbyCompany" class="btn-primary float-right">Filter by Company</button>
+            <button type="button" id="filterbyCompany" class="btn-primary float-right">Filter by Company</button>
             <script type="text/javascript">
                 document.getElementById("filterbyCompany").onclick = function () {
-                    location.href = document.URL +'filterCompany/'+ document.getElementById('company').value+'/';
-                };
-            </script>
-            <input type="text" class="float-right" name="industry" id="industry" placeholder="Industry" required>
-            <button type="button" id= "filterbyIndustry" class="btn-primary float-right">Filter by Industry</button>
-            <script type="text/javascript">
-                document.getElementById("filterbyIndustry").onclick = function () {
-                    location.href = document.URL +'filterIndustry/'+ document.getElementById('industry').value+'/';
-                };
-            </script>
-            <button type="button" id= "resetFilter" class="btn-primary float-left">Reset Filters</button>
-            <script type="text/javascript">
-                document.getElementById("resetFilter").onclick = function () {
                     let string = document.URL;
                     myIndex = string.split("/", 5).join("/").length;
-                    location.href = string.substring(0, myIndex) + "/";
-                }
+                    location.href = string.substring(0, myIndex) + '/filterCompany/' + document.getElementById('company').value + '/';
+                };
             </script>
-            <br/>
-        </div>
-
-            <table class="table table-hovered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">title</th>
-                        <th scope="col">Company</th>
-                        <th scope="col">description</th>
-                        <th scope="col">requirements</th>
-                        <th scope="col">deadline</th>
-                        <th scope="col">numberOfPositions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% postings.forEach((postings, index) => { %>
-                        <tr>
-                            <th scope="row"><%= postings.title %></th>
-                            <td><%= postings.company %></td>
-                            <td><%= postings.description %></td>
-                            <td><%= postings.requirements %></td>
-                            <td><%= postings.deadline %></td>
-                            <td><%= postings.numberOfPositions %></td>
-                            <td>
-                                <a href="posting/<%= postings.jpID %>/" target="_blank" rel="noopener" class="btn btn-sm btn-success">More Info</a>
-                            </td>
-                            <td>
-                                <a href="apply/<%= postings.jpID %>/" target="_blank" rel="noopener" class="btn btn-sm btn-success">Apply</a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p class="text-center">No postings found.</p>
-        <% } %>
+        </form>
+        <form>
+            <input type="text" class="float-right" name="industry" id="industry" placeholder="Industry" required>
+            <button type="button" id="filterbyIndustry" class="btn-primary float-right">Filter by Industry</button>
+            <script type="text/javascript">
+                document.getElementById("filterbyIndustry").onclick = function () {
+                    let string = document.URL;
+                    myIndex = string.split("/", 5).join("/").length;
+                    location.href = string.substring(0, myIndex) + '/filterIndustry/' + document.getElementById('industry').value + '/';
+                };
+            </script>
+        </form>
+        <button type="button" id="resetFilter" class="btn-primary float-left">Reset Filters</button>
+        <script type="text/javascript">
+            document.getElementById("resetFilter").onclick = function () {
+                let string = document.URL;
+                myIndex = string.split("/", 5).join("/").length;
+                location.href = string.substring(0, myIndex) + "/";
+            }
+        </script>
+        <br />
     </div>
+
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">Company</th>
+                <th scope="col">description</th>
+                <th scope="col">requirements</th>
+                <th scope="col">deadline</th>
+                <th scope="col">numberOfPositions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% postings.forEach((postings, index) => { %>
+            <tr>
+                <th scope="row"><%= postings.title %></th>
+                <td><%= postings.company %></td>
+                <td><%= postings.description %></td>
+                <td><%= postings.requirements %></td>
+                <td><%= postings.deadline %></td>
+                <td><%= postings.numberOfPositions %></td>
+                <td>
+                    <a href="/applicant/<%= id %>/posting/<%= postings.jpID %>/" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">More Info</a>
+                </td>
+                <td>
+                    <a href="/applicant/<%= id %>/apply/<%= postings.jpID %>/" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Apply</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p class="text-center">No postings found.</p>
+    <% } %>
+</div>
 </div>
 </body>
+
 </html>

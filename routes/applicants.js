@@ -1,6 +1,6 @@
 module.exports = {
     getAllApplicants: (req, res) => {
-         let query = "SELECT * FROM Applicant ORDER BY userID"; // query database to get all the players
+        let query = "SELECT * FROM Applicant ORDER BY userID"; // query database to get all the players
 
         // execute query
         db.query(query, (err, result) => {
@@ -9,7 +9,7 @@ module.exports = {
             }
             res.render('allApplicants.ejs', {
                 title: "View applicants"
-                ,applicants: result
+                , applicants: result
             });
         });
     },

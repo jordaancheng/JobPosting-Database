@@ -1,23 +1,25 @@
 <% include partials/header.ejs %>
-    <h1> Update A Application </h1>
-    <div class="container">
-        <% if (player) { %>
-        <form class="add-player-form" action="" method="post" enctype="application/x-www-form-urlencoded">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="resume">Resume</label>
-                    <input type="text" class="form-control" name="resume" id="resume" value="<%= player.resume %>" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="coverLetter">Cover Letter</label>
-                    <input type="text" class="form-control" name="coverLetter" id="coverLetter" value="<%= player.coverLetter %>" required>
-                </div>
+<h1> Update A Application </h1>
+<div class="container">
+    <% if (player) { %>
+    <form class="add-player-form" action="" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="resume">Resume</label>
+                <input type="text" class="form-control" name="resume" id="resume" value="<%= player.resume %>" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="coverLetter">Cover Letter</label>
+                <input type="text" class="form-control" name="coverLetter" id="coverLetter"
+                    value="<%= player.coverLetter %>" required>
+            </div>
             <button type="submit" class="btn btn-primary float-right"> Save Application</button>
-        </form>
-        <% } else { %>
-            <p class="text-center">No Application..</p>
-        <% } %>
+    </form>
+    <% } else { %>
+    <p class="text-center">No Application..</p>
+    <% } %>
 </div>
 </div>
 </body>
+
 </html>

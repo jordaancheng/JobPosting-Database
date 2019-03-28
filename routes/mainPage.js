@@ -9,7 +9,7 @@ module.exports = {
             }
             res.render('mainPage.ejs', {
                 title: "Welcome to the Job Posting Board!"
-                ,players: result
+                , players: result
             });
         });
     },

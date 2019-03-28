@@ -1,43 +1,47 @@
 <% include partials/header.ejs %>
-    <div class="table-wrapper">
-        <% if (postings.length > 0) {%>
-            <table class="table table-hovered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">title</th>
-                        <th scope="col">Company</th>
-                        <th scope="col">description</th>
-                        <th scope="col">requirements</th>
-                        <th scope="col">deadline</th>
-                        <th scope="col">numberOfPositions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% postings.forEach((player, index) => { %>
-                        <tr>
-                            <th scope="row"><%= player.title %></th>
-                            <td><%= player.company %></td>
-                            <td><%= player.description %></td>
-                            <td><%= player.requirements %></td>
-                            <td><%= player.deadline %></td>
-                            <td><%= player.numberOfPositions %></td>
-                            <td>
-                                <a href="posting/<%= player.jpID %>/edit/" target="_blank" rel="noopener" class="btn btn-sm btn-success">change</a>
-                            </td>
-                            <td>
-                                <a href="posting/<%= player.jpID %>/filterReferences/" target="_blank" rel="noopener" class="btn btn-sm btn-success">Applications with References</a>
-                            </td>
-                            <td>
-                                <a href="posting/<%= player.jpID %>/" target="_blank" rel="noopener" class="btn btn-sm btn-success">Applications</a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p class="text-center">No postings found.</p>
-        <% } %>
-    </div>
+<div class="table-wrapper">
+    <% if (postings.length > 0) {%>
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">Company</th>
+                <th scope="col">description</th>
+                <th scope="col">requirements</th>
+                <th scope="col">deadline</th>
+                <th scope="col">numberOfPositions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% postings.forEach((player, index) => { %>
+            <tr>
+                <th scope="row"><%= player.title %></th>
+                <td><%= player.company %></td>
+                <td><%= player.description %></td>
+                <td><%= player.requirements %></td>
+                <td><%= player.deadline %></td>
+                <td><%= player.numberOfPositions %></td>
+                <td>
+                    <a href="posting/<%= player.jpID %>/edit/" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">change</a>
+                </td>
+                <td>
+                    <a href="posting/<%= player.jpID %>/filterReferences/" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Applications with References</a>
+                </td>
+                <td>
+                    <a href="posting/<%= player.jpID %>/" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Applications</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p class="text-center">No postings found.</p>
+    <% } %>
+</div>
 </div>
 </body>
+
 </html>

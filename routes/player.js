@@ -4,7 +4,7 @@ module.exports = {
     addPlayerPage: (req, res) => {
         res.render('add-applicant.ejs', {
             title: "Welcome to Job Posting | Add a new applicant"
-            ,message: ''
+            , message: ''
         });
     },
     addPlayer: (req, res) => {
@@ -37,19 +37,19 @@ module.exports = {
     },
     getUpdateApplicantPage: (req, res) => {
         let id = req.params.id;
-        let query="SELECT * FROM Applicant a WHERE a.userID = '"+ id + "'";
-        db.query(query, (err, result) =>{
-            if(err){
+        let query = "SELECT * FROM Applicant a WHERE a.userID = '" + id + "'";
+        db.query(query, (err, result) => {
+            if (err) {
                 return res.status(500).send(err);
             }
             //result[0] contains the current resume and coverletter for the user
             res.render('update-applicant.ejs', {
                 title: "Update Applicant"
-                ,applicant: result[0]
-                ,message: ''
+                , applicant: result[0]
+                , message: ''
             });
         });
-        
+
     },
     updateApplicant: (req, res) => {
         let userid = req.params.id;
@@ -58,14 +58,14 @@ module.exports = {
         let currentlyEmployed = req.body.currentlyEmployed;
         let phoneNumber = req.body.phoneNumber;
         let address = req.body.address;
-        let query = "Update Applicants set name = '" + name + 
+        let query = "Update Applicants set name = '" + name +
             "', password = '" + password +
             "', currentlyEmployed = '" + currentlyEmployed +
             "', phoneNumber = '" + phoneNumber +
             "', address = '" + address +
-            "'WHERE userID = '"+userid + "'";
+            "'WHERE userID = '" + userid + "'";
 
-        db.query(query, (err, result) =>{
+        db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -81,8 +81,8 @@ module.exports = {
             }
             res.render('edit-player.ejs', {
                 title: "Edit  Player"
-                ,player: result[0]
-                ,message: ''
+                , player: result[0]
+                , message: ''
             });
         });
     },

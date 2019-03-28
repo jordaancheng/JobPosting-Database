@@ -11,7 +11,7 @@ module.exports = {
             }else{
                 res.render('index.ejs', {
                     title: "Welcome to Job Posting | View postings"
-                    ,postings: result
+                    ,postings: result, id:id
                 });
             }
         });

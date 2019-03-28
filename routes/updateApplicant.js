@@ -57,11 +57,11 @@ module.exports = {
 
         let query = "SELECT * FROM Create_Application ca WHERE ca.appID = '"
             + appid + "' AND ca.userID = '" + id + "'";
-        console.log(query)    
+        console.log(query)
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
-            }else {
+            } else {
                 res.render('updateApplication.ejs', {
                     title: "Welcome to Job Posting | Update Application"
                     , player: result[0]
@@ -79,7 +79,7 @@ module.exports = {
         let name = req.body.name;
         let query = "Update Create_Application ca set ca.resume = '" + resume + "', ca.coverLetter = '" +
             coverLetter + "' WHERE ca.appID = '" + appid + "' AND ca.userID = '" + id + "'";
-        console.log(query)   
+        console.log(query)
         db.beginTransaction(function (err) {
             if (err) { throw err; }
             db.query(query, (err, result) => {
