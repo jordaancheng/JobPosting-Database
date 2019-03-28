@@ -3,6 +3,12 @@
         <% if (postings.length > 0) {%>
 
         <div>
+            <button type="button" id= "viewInterview" class="btn-primary float-right">View Interview</button>
+                <script type="text/javascript">
+                    document.getElementById("viewInterview").onclick = function () {
+                        location.href = document.URL +'interview/';
+                    };
+                </script>
             <button type="button" id= "viewApplications" class="btn-primary float-right">View Applications</button>
             <script type="text/javascript">
                 document.getElementById("viewApplications").onclick = function () {
