@@ -105,8 +105,8 @@ module.exports = {
     getInterviewPage: (req, res) => {
         let id = req.params.id;
         let pn = req.params.ph;
-        let query="SELECT * FROM Participate_Interview2 pi WHERE pi.userID = '" + id +
-            "' AND pi.date >= CURDATE() ORDER BY pi.date";
+        let query="SELECT * FROM For_Interview2 fi, Participate_Interview2 pi, Jobposting4 jp4 WHERE pi.userID = '" + id +
+            "' AND pi.date >= CURDATE() AND fi.jpID = jp4.jpID AND fi.interviewID = pi.interviewID ORDER BY pi.date";
             db.query(query, (err, result) =>{
                 if(err){
                     return res.status(500).send(err);

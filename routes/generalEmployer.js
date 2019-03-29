@@ -4,17 +4,27 @@ module.exports = {
         let id = req.params.id;
         let query = "SELECT * FROM JobPosting4 j4," +
             "JobPosting3 j3, Employer2 e WHERE j4.requirements = j3.requirements AND j4.deadline >= CURDATE() AND e.userID = '" +
-            id + "' AND j4.company = e.company";
+            id + "' AND j4.company = e.company ORDER BY jpID";
+        let query2 = "Select jpID, count(appID) as count From ApplyTo_Application WHERE jpID in (SELECT j4.jpID FROM JobPosting4 j4," +
+        "Employer2 e WHERE j4.deadline >= CURDATE() AND e.userID = '" +
+        id + "' AND j4.company = e.company) Group by jpID ORDER BY jpID";
 
         console.log(query);
+        console.log(query2);
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             } else {
-                //result[0] contains the current resume and coverletter for the user
-                res.render('employerIndex.ejs', {
-                    title: "Welcome to Job Posting | View postings"
-                    , postings: result
+                db.query(query2, (err2, result2) => {
+                    if (err) {
+                        return res.status(500).send(err);
+                    } else{
+                        console.log(result2.count)
+                        res.render('employerIndex.ejs', {
+                            title: "Welcome to Job Posting | View postings"
+                            , postings: result, count:result2
+                        });
+                    }        
                 });
             }
         });
