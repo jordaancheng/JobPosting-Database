@@ -19,7 +19,7 @@ module.exports = {
                     if (err) {
                         return res.status(500).send(err);
                     } else{
-                        console.log(result2.count)
+                        console.log(result2[0].count)
                         res.render('employerIndex.ejs', {
                             title: "Welcome to Job Posting | View postings"
                             , postings: result, count:result2
